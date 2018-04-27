@@ -1,6 +1,18 @@
-from django.shortcuts import render
-
-from django.http import HttpResponse
+from django.shortcuts import render, HttpResponseRedirect
+from .models import Treasure
+from .forms import TreasureForm
 
 def index(req):
-    return HttpResponse("<h1>Hello explorers</h1>")
+    treasures = Treasure.objects.all()
+    form = TreasureForm()
+    return render(req, 'index.html', {'treasures': treasures, 'form': form})
+
+def detail(req, id):
+    treasure = Treasure.objects.get(id=id)
+    return render(req, 'detail.html', {'treasure': treasure})
+
+def post_treasure(req):
+    form = TreasureForm(req.POST)
+    if form.is_valid():
+        form.save(commit = True)
+    return HttpResponseRedirect('/')

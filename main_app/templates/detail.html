@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="container" role="main">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="treasure panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">{{ treasure.name }}</h2>
+                    </div>
+
+                <div class="treasure-photo">
+                    <img src="{{ treasure.img_url }}" alt="" height="100">
+                </div>
+                <p>{{ treasure.value }}</p>
+                <p>{{treasure.locatiion}}</p>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
