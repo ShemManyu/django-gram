@@ -8,6 +8,9 @@
                 <div class="treasure panel panel-default">
                         <div class="panel-heading">
                             <h2 class="panel-title"><a href="/{{treasure.id}}/">{{ treasure.name }}</a></h2>
+                            <a href="/user/{{treasure.user.username}}">
+                                by: {{ treasure.user.username }}
+                            </a>
                         </div>
 
                     <div class="treasure-photo">
